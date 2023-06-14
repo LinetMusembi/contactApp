@@ -1,6 +1,7 @@
 
 package com.example.contactappassignment
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,11 @@ class  ContactRvAdapter(private val contactList: List<ContactData>) :
         holder.itemView.findViewById<TextView>(R.id.tvName).text = contact.firstName
         holder.itemView.findViewById<TextView>(R.id.tvEmail).text = contact.email
         holder.itemView.findViewById<TextView>(R.id.tvPhoneNumber).text = contact.phoneNumber
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, AddContacts::class.java)
+            holder.itemView.context.startActivity(intent)
+        }
+
     }
 
     override fun getItemCount(): Int{
@@ -34,4 +40,6 @@ class  ContactRvAdapter(private val contactList: List<ContactData>) :
     }
 
 }
+
+
 
